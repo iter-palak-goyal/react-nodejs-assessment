@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 
 import NoteCard from "./components/NodeCard";
-import Navbar from "./components/navBar";
+import Navbar from "./components/NavBar";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -20,7 +20,7 @@ function App() {
   const fetchNotes = async () => {
     try {
       const response = await axios.get(
-        "https://react-nodejs-assessment.onrender.com/api/notes"
+        "http://localhost:5000/api/notes"
       );
 
       setNotes(response.data);
@@ -42,13 +42,10 @@ function App() {
     }
 
     try {
-      await axios.post(
-        "https://react-nodejs-assessment.onrender.com/api/notes",
-        {
-          title,
-          description,
-        }
-      );
+      await axios.post("http://localhost:5000/api/notes", {
+        title,
+        description,
+      });
 
       setTitle("");
       setDescription("");
@@ -63,7 +60,7 @@ function App() {
   const deleteNote = async (id) => {
     try {
       await axios.delete(
-        `https://react-nodejs-assessment.onrender.com/api/notes/${id}`
+        `http://localhost:5000/api/notes/${id}`
       );
 
       fetchNotes();
@@ -84,7 +81,7 @@ function App() {
   const updateNote = async () => {
     try {
       await axios.put(
-        `https://react-nodejs-assessment.onrender.com/api/notes/${editingId}`,
+        `http://localhost:5000/api/notes/${editingId}`,
         {
           title,
           description,
