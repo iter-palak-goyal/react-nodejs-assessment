@@ -20,7 +20,7 @@ function App() {
   const fetchNotes = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/notes"
+        "https://react-nodejs-assessment.onrender.com/api/notes"
       );
 
       setNotes(response.data);
@@ -42,7 +42,7 @@ function App() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/notes", {
+      await axios.post("https://react-nodejs-assessment.onrender.com/api/notes", {
         title,
         description,
       });
@@ -60,7 +60,7 @@ function App() {
   const deleteNote = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/notes/${id}`
+        `https://react-nodejs-assessment.onrender.com/api/notes/${id}`
       );
 
       fetchNotes();
@@ -81,7 +81,7 @@ function App() {
   const updateNote = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/notes/${editingId}`,
+        `https://react-nodejs-assessment.onrender.com/api/notes/${editingId}`,
         {
           title,
           description,
