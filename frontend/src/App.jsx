@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 
 import NoteCard from "./components/NodeCard";
-import Navbar from "./components/NavBar";
+import Navbar from "./components/navBar";
 
 function App() {
   const [notes, setNotes] = useState([]);
